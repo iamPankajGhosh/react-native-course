@@ -9,6 +9,7 @@ import {
   Pressable,
   Modal,
   StatusBar,
+  ActivityIndicator,
 } from "react-native";
 import logoImg from "./assets/adaptive-icon.png";
 
@@ -16,7 +17,8 @@ export default function App() {
   const [isModalVisiable, setIsModalVisiable] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
-      <StatusBar backgroundColor="lightgreen" barStyle="dark-content" />
+      <ActivityIndicator size="large" color="midnightblue" animating />
+      {/* <StatusBar backgroundColor="lightgreen" barStyle="dark-content" /> */}
       {/*<Button
         title="Press"
         onPress={() => setIsModalVisiable(true)}
