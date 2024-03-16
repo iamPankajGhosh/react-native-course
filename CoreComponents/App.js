@@ -8,6 +8,7 @@ import {
   Button,
   Pressable,
   Modal,
+  StatusBar,
 } from "react-native";
 import logoImg from "./assets/adaptive-icon.png";
 
@@ -15,7 +16,8 @@ export default function App() {
   const [isModalVisiable, setIsModalVisiable] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
-      <Button
+      <StatusBar backgroundColor="lightgreen" barStyle="dark-content" />
+      {/*<Button
         title="Press"
         onPress={() => setIsModalVisiable(true)}
         color="midnightblue"
@@ -30,7 +32,7 @@ export default function App() {
           <Text>Modal Content</Text>
           <Button title="Close" onPress={() => setIsModalVisiable(false)} />
         </View>
-      </Modal>
+        </Modal>*/}
       {/*<Pressable onPress={() => console.log("Img pressed")}>
         <Image source={logoImg} style={{ width: 300, height: 300 }} />
       </Pressable>
