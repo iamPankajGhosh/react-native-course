@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   View,
   Text,
@@ -6,18 +7,31 @@ import {
   ScrollView,
   Button,
   Pressable,
+  Modal,
 } from "react-native";
 import logoImg from "./assets/adaptive-icon.png";
 
 export default function App() {
+  const [isModalVisiable, setIsModalVisiable] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
       <Button
         title="Press"
-        onPress={() => console.log("button pressed")}
+        onPress={() => setIsModalVisiable(true)}
         color="midnightblue"
       />
-      <Pressable onPress={() => console.log("Img pressed")}>
+      <Modal
+        visible={isModalVisiable}
+        onRequestClose={() => setIsModalVisiable(false)}
+        animationType="slide"
+        presentationStyle="pageSheet"
+      >
+        <View style={{ flex: 1, backgroundColor: "lightblue", padding: 60 }}>
+          <Text>Modal Content</Text>
+          <Button title="Close" onPress={() => setIsModalVisiable(false)} />
+        </View>
+      </Modal>
+      {/*<Pressable onPress={() => console.log("Img pressed")}>
         <Image source={logoImg} style={{ width: 300, height: 300 }} />
       </Pressable>
       <Pressable onPress={() => console.log("Text pressed")}>
@@ -32,7 +46,7 @@ export default function App() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </Text>
-      </Pressable>
+      </Pressable>*/}
 
       {/* <ScrollView>
         <Image source={logoImg} style={{ width: 300, height: 300 }} />
