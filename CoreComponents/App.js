@@ -5,6 +5,7 @@ import {
   ImageBackground,
   ScrollView,
   Button,
+  Pressable,
 } from "react-native";
 import logoImg from "./assets/adaptive-icon.png";
 
@@ -15,10 +16,11 @@ export default function App() {
         title="Press"
         onPress={() => console.log("button pressed")}
         color="midnightblue"
-        disabled
       />
-      {/* <ScrollView>
+      <Pressable onPress={() => console.log("Img pressed")}>
         <Image source={logoImg} style={{ width: 300, height: 300 }} />
+      </Pressable>
+      <Pressable onPress={() => console.log("Text pressed")}>
         <Text>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -30,6 +32,9 @@ export default function App() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </Text>
+      </Pressable>
+
+      {/* <ScrollView>
         <Image source={logoImg} style={{ width: 300, height: 300 }} />
         <ImageBackground source={logoImg} style={{ flex: 1 }}>
           <Text>Image Text</Text>
