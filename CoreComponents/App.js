@@ -13,12 +13,15 @@ import {
   Alert,
 } from "react-native";
 import logoImg from "./assets/adaptive-icon.png";
+import Greet from "./components/Greet";
 
 export default function App() {
   const [isModalVisiable, setIsModalVisiable] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
-      <Button
+      <Greet name="Pankaj Ghosh" />
+      <Greet name="John Doe" />
+      {/*<Button
         title="Alert"
         onPress={() =>
           Alert.alert("Invalid Data", "DOB Incorrect", [
@@ -32,7 +35,7 @@ export default function App() {
             },
           ])
         }
-      />
+      />*/}
       {/* <ActivityIndicator size="large" color="midnightblue" animating /> */}
       {/* <StatusBar backgroundColor="lightgreen" barStyle="dark-content" /> */}
       {/*<Button
