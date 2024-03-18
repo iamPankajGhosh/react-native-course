@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Platform } from "react-native";
 
 export default function App() {
   return (
@@ -21,13 +21,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "plum",
     alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Platform.OS === "android" ? 40 : 0,
   },
   box: {
     padding: 20,
   },
   text: {
-    fontSize: 24,
+    ...Platform.select({
+      ios: { fontSize: 30 },
+      android: { fontSize: 40 },
+    }),
     fontWeight: "bold",
     textAlign: "center",
   },
