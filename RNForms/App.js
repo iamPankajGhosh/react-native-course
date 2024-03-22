@@ -7,66 +7,67 @@ import {
   StatusBar,
   TextInput,
   Switch,
+  Button,
 } from "react-native";
 
 export default function App() {
-  const [name, setName] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
-    <SafeAreaView style={styles.container}>
-      <TextInput
-        style={styles.input}
-        value={name}
-        onChangeText={setName}
-        placeholder="email@example.com"
-        secureTextEntry
-        keyboardType="email-address"
-        autoCapitalize="none"
-        autoCorrect={false}
-      />
-      <TextInput
-        style={[styles.input, styles.multilineText]}
-        placeholder="message"
-        multiline
-      />
-      <Text style={styles.text}>My name is {name}</Text>
-      <View style={styles.switchContainer}>
-        <Text style={styles.text}>Dark Mode</Text>
-        <Switch
-          value={isDarkMode}
-          onValueChange={() => setIsDarkMode((prev) => !prev)}
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={isDarkMode ? "#f5dd4b" : "#f4f3f4"}
+    <View style={styles.container}>
+      <View style={styles.form}>
+        <Text style={styles.label}>Username</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your username"
+          value={username}
+          onChangeText={setUsername}
         />
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter your password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
+        <Button title="Login" onPress={() => {}} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 20,
+    backgroundColor: "#f5f5f5",
+  },
+  form: {
     backgroundColor: "#fff",
-    paddingTop: StatusBar.currentHeight,
-    padding: 10,
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
+    fontWeight: "bold",
   },
   input: {
     height: 40,
-    padding: 10,
-    marginBottom: 12,
+    borderColor: "#ccc",
     borderWidth: 1,
-  },
-  text: {
-    fontSize: 20,
-  },
-  multilineText: {
-    height: 100,
-    textAlignVertical: "top",
-  },
-  switchContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 10,
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 5,
   },
 });
