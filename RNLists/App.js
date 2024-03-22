@@ -6,8 +6,11 @@ import {
   SafeAreaView,
   StatusBar,
   FlatList,
+  SectionList,
 } from "react-native";
+
 import pokemonList from "./data.json";
+import groupData from "./grouped-data.json";
 
 export default function App() {
   return (
@@ -21,7 +24,7 @@ export default function App() {
         ))}
       </ScrollView> */}
       <View style={styles.scrollView}>
-        <FlatList
+        {/* <FlatList
           data={pokemonList}
           renderItem={({ item }) => (
             <View key={item.id} style={styles.card}>
@@ -39,6 +42,19 @@ export default function App() {
           ListFooterComponent={
             <Text style={styles.footerText}>End of List</Text>
           }
+        /> */}
+        <SectionList
+          sections={groupData}
+          renderItem={({ item }) => (
+            <View style={styles.card}>
+              <Text style={styles.cardText}>{item}</Text>
+            </View>
+          )}
+          renderSectionHeader={({ section }) => (
+            <Text style={styles.sectionHeaderText}>{section.type}</Text>
+          )}
+          ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+          SectionSeparatorComponent={() => <View style={{ height: 16 }} />}
         />
       </View>
     </SafeAreaView>
@@ -71,5 +87,10 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 20,
+  },
+  sectionHeaderText: {
+    fontSize: 24,
+    backgroundColor: "#fff",
+    fontWeight: "bold",
   },
 });
